@@ -143,6 +143,45 @@ ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ## Hawaii
 ## Idaho
 ## Illinois
+```{r illinois-restrictive, message=FALSE}
+library(plotly)
+
+g_il_restrictive = ggplot(
+  nd |> filter(
+    effect == "Restrictive",
+    effdate > ymd("1985-01-01"),
+    state == "Illinois"
+  ),
+  aes(
+    x = effdate,
+    text = paste(state, lawclass, changetype, wrap_hover(content))
+  )
+) +
+  geom_histogram(binwidth = 365) +
+  ggtitle("Counts of restrictive legislative changes in Illinois after 1985")
+
+ggplotly(g_il_restrictive) |>
+  plotly::style(hoverlabel = list(align = "left"))
+```
+
+```{r illinois-permissive, message=FALSE}
+g_il_permissive = ggplot(
+  nd |> filter(
+    effect == "Permissive",
+    effdate > ymd("1985-01-01"),
+    state == "Illinois"
+  ),
+  aes(
+    x = effdate,
+    text = paste(state, lawclass, changetype, wrap_hover(content))
+  )
+) +
+  geom_histogram(binwidth = 365) +
+  ggtitle("Counts of permissive legislative changes in Illinois after 1985")
+
+ggplotly(g_il_permissive) |>
+  plotly::style(hoverlabel = list(align = "left"))
+```
 ## Indiana
 ## Iowa
 ## Kansas
