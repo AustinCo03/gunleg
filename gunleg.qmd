@@ -140,7 +140,8 @@ ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ## Connecticut
 ## Delaware
 ## Florida
-change to FL
+
+changes to Florida
 
 ## Georgia
 ## Hawaii
