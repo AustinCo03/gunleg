@@ -8,6 +8,7 @@ author: "BST 260 students"
 Grab the gun legislation data (originally from [https://www.rand.org/pubs/tools/TLA243-2-v4.html](https://www.rand.org/pubs/tools/TLA243-2-v4.html)).
 
 ```{r getd,message=FALSE}
+install.packages("readxl")
 library(readxl)
 if (!exists("lawdat")) {
   download.file("https://tinyurl.com/randgunlaw", (tf <- tempfile()))
@@ -139,6 +140,8 @@ ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ## Connecticut
 ## Delaware
 ## Florida
+change to FL
+
 ## Georgia
 ## Hawaii
 ## Idaho
