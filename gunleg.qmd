@@ -137,6 +137,21 @@ ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ```
 ## Colorado
 ## Connecticut
+GitHub: Qinyu57
+Name: Qinyu Xu
+```{r}
+library(plotly)
+#GitHub: Qinyu57
+#Name: Qinyu Xu
+g1 = ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01"), state=="Connecticut"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of restrictive legislative changes in Connecticut after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="Connecticut"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in Connecticut after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
 ## Delaware
 ## Florida
 ## Georgia
