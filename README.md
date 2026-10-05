@@ -3,7 +3,7 @@ gun legislation quarto document
 
 October 5 BST 260
 
-- fork this repo to your organization
+- fork this repo https://github.com/vjcitn/gunleg to your organization
 - set up an Rstudio project based on your fork
 - render the quarto as is
 - determine your "state assignment"
