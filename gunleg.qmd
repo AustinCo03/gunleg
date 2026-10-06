@@ -379,6 +379,17 @@ g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), stat
 ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ```
 ## North Dakota
+```{r doplyND}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01"), state=="North Dakota"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of restrictive legislative changes in North Dakota after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="North Dakota"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in North Dakota after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
 ## Ohio
 ## Oklahoma
 ```{r doplyOK}
