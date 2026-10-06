@@ -152,6 +152,7 @@ g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), stat
 ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ```
 ## Colorado
+
 ## Connecticut
 GitHub: Qinyu57
 Name: Qinyu Xu
@@ -301,6 +302,18 @@ ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 
 
 ## New York
+```{r doplyNY}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01"), state=="New York"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of restrictive legislative changes in New York after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="New York"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in New York after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
+
 ## North Carolina
 ```{r doplyNC}
 library(plotly)
