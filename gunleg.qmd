@@ -393,6 +393,17 @@ g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), stat
 ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ```
 ## Oregon
+```{r}
+data = nd %>% filter(effect %in% c("Restrictive", "Permissive"), effdate > ymd("1985-01-01"),state == "Oregon")%>%mutate(year = year(effdate))
+graph = ggplot(data, aes(x = factor(year), fill = effect)) + geom_bar(position = "dodge") +
+  labs(
+    title = "Legislative changes in Oregon after 1985",
+    x = "Year",
+    y = "Count",
+    fill = "Effect")
+ggplotly(graph) |> plotly::style(hoverlabel = list(align = "left"))
+
+```
 ## Pennsylvania
 ## Rhode Island
 ## South Carolina
