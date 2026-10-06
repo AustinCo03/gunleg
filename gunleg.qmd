@@ -9,7 +9,7 @@ name: "Jingyuan Xiao"
 Grab the gun legislation data (originally from [https://www.rand.org/pubs/tools/TLA243-2-v4.html](https://www.rand.org/pubs/tools/TLA243-2-v4.html)).
 
 ```{r getd,message=FALSE}
-install.packages("readxl")
+if (!requireNamespace("readxl")) install.packages("readxl")
 library(readxl)
 if (!exists("lawdat")) {
   download.file("https://tinyurl.com/randgunlaw", (tf <- tempfile()))
