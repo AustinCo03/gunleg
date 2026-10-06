@@ -121,7 +121,21 @@ g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), stat
 ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
 ```
 ## Arizona
-## Arkansas
+
+## Arkansas - <https://github.com/AustinCo03>
+```{r doplyAR}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01"), state=="Arkansas"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of restrictive legislative changes in Arkansas after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="Arkansas"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in Arkansas after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
+
 ## California
 
 ```{r doplyCA}
